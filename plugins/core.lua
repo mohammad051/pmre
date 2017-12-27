@@ -1,5 +1,5 @@
 local help_text = [[
-*Beyond Messeger Bot Commands :*
+*kingdoom Messeger Bot Commands :*
 
 */id*
 _Show Your And Chat ID_
@@ -64,7 +64,7 @@ _Set The Maximun Messages In A FloodTime To Be Considered As flood_
 */setpvfloodtime*
 _Set The Time That Bot Uses To Check flood_
 
-*/beyond*
+*/king*
 _Show About Bot_
 
 */sendtoall* `[text]`
@@ -73,27 +73,27 @@ _Send A Message To All User_
 */fwdtoall* `[reply]`
 _Forward A Message To All User_
 
-[Beyond Team Channel](Telegram.Me/BeyondTeam)
+[King Doom Team Channel](Telegram.Me/kingdoomTeam)
 _Good Luck_ *:D*
 
 ]]
 
 local mem_help = [[
-*Welcome To Beyond Messenger Bot :*
+*Welcome To King Doom Team Bot :*
 
 */id*
 _Show Your And Chat ID_
 
-*/beyond*
+*/king*
 _Show About Bot_
 
-[Beyond Team Channel](Telegram.Me/BeyondTeam)
+[King Doom Team Channel](Telegram.Me/kingdoomTeam)
 _Good Luck_ *:D*
 
 ]]
 
 local profile_text = [[
-@BeyondTeam
+@kingdoomTeam
 ]]
 
 local sudo_keyboard = {{"🚦 اطلاعات چت","🎯 اعضای تیم"},{"🔖 راهنما","👥 لیست کاربران"},{"🚷 لیست سیاه","👤 لیست سودو ها"},{"✅ پاک کردن لیست سیاه","🔁 بارگذاری مجدد"}}
@@ -280,7 +280,7 @@ local function run(msg, matches)
 		redis:set("realm",msg.chat.id)
 		return "*Realm has been add*"
 	end
-	if matches[1] == "beyond" or matches[1] == "🎯 اعضای تیم"  then
+	if matches[1] == "king" or matches[1] == "🎯 اعضای تیم"  then
 		return _config.info_text
 	end
 	if (matches[1] == "users" or matches[1] == "👥 لیست کاربران") and is_sudo(msg) then
@@ -484,7 +484,7 @@ local function pre_process(msg)
 		redis:sadd('users',v)
 	end
 
-	local botcmd = msg.text == "/start" or msg.text == "/init" or msg.text == "/setrealm" or msg.text == "/setstart (.*)" or msg.text == "/id" or msg.text == "/setsent (.*)" or msg.text == "/blocklist" or msg.text == "/users" or msg.text == "/block (%d+)" or msg.text == "/unblock (%d+)" or msg.text == "/clean blocklist" or msg.text == "/setsudo (%d+)" or msg.text == "/remsudo (%d+)" or msg.text == "/antiflood (.*)" or msg.text == "/setpvflood (%d+)" or msg.text == "/setpvfloodtime (%d+)" or msg.text == "/help" or msg.text == "/sudolist" or msg.text == "/sendtoall (.*)" or msg.text == "/beyond" or msg.text == "🚦 اطلاعات چت" or msg.text == "📬 پروفایل" or msg.text == "🎯 اعضای تیم" or msg.text == "🌟 کانال ما" or msg.text == "🔖 راهنما" or msg.text == "/block" or msg.text == "/unblock" or msg.text == "/setsudo" or msg.text == "/remsudo" or msg.text == "/autoleave (.*)" or msg.text == "/fwdtoall" or msg.text == "/setprofiletext (.*)" or msg.text == "🚷 لیست سیاه" or msg.text == "👤 لیست سودو ها" or msg.text == "✅ پاک کردن لیست سیاه" or msg.text == "🔁 بارگذاری مجدد" or msg.text == "👥 لیست کاربران"
+	local botcmd = msg.text == "/start" or msg.text == "/init" or msg.text == "/setrealm" or msg.text == "/setstart (.*)" or msg.text == "/id" or msg.text == "/setsent (.*)" or msg.text == "/blocklist" or msg.text == "/users" or msg.text == "/block (%d+)" or msg.text == "/unblock (%d+)" or msg.text == "/clean blocklist" or msg.text == "/setsudo (%d+)" or msg.text == "/remsudo (%d+)" or msg.text == "/antiflood (.*)" or msg.text == "/setpvflood (%d+)" or msg.text == "/setpvfloodtime (%d+)" or msg.text == "/help" or msg.text == "/sudolist" or msg.text == "/sendtoall (.*)" or msg.text == "/king" or msg.text == "🚦 اطلاعات چت" or msg.text == "📬 پروفایل" or msg.text == "🎯 اعضای تیم" or msg.text == "🌟 کانال ما" or msg.text == "🔖 راهنما" or msg.text == "/block" or msg.text == "/unblock" or msg.text == "/setsudo" or msg.text == "/remsudo" or msg.text == "/autoleave (.*)" or msg.text == "/fwdtoall" or msg.text == "/setprofiletext (.*)" or msg.text == "🚷 لیست سیاه" or msg.text == "👤 لیست سودو ها" or msg.text == "✅ پاک کردن لیست سیاه" or msg.text == "🔁 بارگذاری مجدد" or msg.text == "👥 لیست کاربران"
 	
 	
 	--by @Xamarin_Developer
@@ -859,12 +859,12 @@ local function pre_process(msg)
 		LeaveGroup(msg.chat.id)
 	end
 	if msg.text == "🌟 کانال ما"  then
-		return send_key(msg.chat.id, "[our channel](http://telegram.me/BeyondTeam)",nil,{{{text="👤ارتباط با ما",url="T.Me/BDMessengerBot"}}})
+		return send_key(msg.chat.id, "[our channel](http://telegram.me/kingdoomTeam)",nil,{{{text="👤ارتباط با ما",url="T.Me/kingiranianbot"}}})
 	end
 	if msg.text == "/start" and msg.chat.type == "private" then
 		if is_sudo(msg) then
 			if not redis:get("setstart") then
-				startmsg = "Welmcome To Official Messenger Bot Of Beyond Team  [our channel](http://telegram.me/BeyondTeam)"
+				startmsg = "Welmcome To Official Messenger Bot Of King Doom Team  [our channel](http://telegram.me//kingdoomTeam)"
 			else
 				startmsg = redis:get("setstart")
 			end
@@ -878,7 +878,7 @@ local function pre_process(msg)
 			add_user(msg)
 			
 			if not redis:get("setstart") then
-				startmsg = "Welmcome To Official Messenger Bot Of Beyond Team  [our channel](http://telegram.me/BeyondTeam)"
+				startmsg = "Welmcome To Official Messenger Bot Of King Doom Team  [our channel](http://telegram.me//kingdoomTeam)"
 			else
 				startmsg = redis:get("setstart")
 			end
@@ -1031,7 +1031,7 @@ return {
 		"^(🌟 کانال ما)$",
 		"^[/](blocklist)$",
 		"^[/](sudolist)$",
-		"^[/](beyond)$",
+		"^[/](king)$",
 		"^(🎯 اعضای تیم)$",
 		"^[/](clean blocklist)$",
 		"^[/](users)$",
